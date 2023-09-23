@@ -163,6 +163,10 @@ public class DriverClass {
 
     }
     public void printEmployees() {
+        for(int i = 0; i < employeeList.size(); i++){
+            Employee currentEmployee = employeeList.get(i);
+            System.out.println(currentEmployee.getfullName());
+        }
     //This methods prints all employees (One employee per line)
     //Note that you already have toString in Employee
     }
