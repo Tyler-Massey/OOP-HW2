@@ -11,7 +11,7 @@ public class DriverClass {
     // TA will change the payrate and the hours worked to test your code
     Employee e = new Employee(fullName, employeeNumber, payRate, hoursWorked);
 
-    //System.out.println(e);  To Test your toString method
+    System.out.println(e);  //To Test your toString method
     Company company = new Company();
 
     //company.hire (new Employee ("Saeed Happy", "sh895" , 2 , 200) );
@@ -26,22 +26,23 @@ public class DriverClass {
 
 
    // company.printCheck("ej789"); // This prints the check of Erika T. Jones
-    company.printCheck("oogabooga"); // This prints the check of Erika T. Jones
+    //company.printCheck("oogabooga"); // This prints the check of Erika T. Jones
     company.printCheck("et897"); // This prints the check of Erika T. Jones
+    company.printEmployees();
 
 
 
     //You may add as many employees to company as you want.
     //The TAs will add their own employees
     //Make sure that each employee of company has a unique employeeNumber
-    /* 
-    company.printCheck("ab784");
-    company.deleteEmployeesBySalary(256.36);
-    company.reverseEmployees();
-    System.out.println( company.SearchByName("WaLiD WiLLiAms") );
+     
+    //company.printCheck("ab784");
+    company.deleteEmployeesBySalary(450);
+    //company.reverseEmployees();
+    //System.out.println( company.SearchByName("WaLiD WiLLiAms") );
     company.printEmployees();
-    */
-        company.printList();
+    
+        //company.printList();
     System.out.println("Bye!");
     }
     } // DriverClass
@@ -97,6 +98,15 @@ public class DriverClass {
 
 
 
+    //tostring method
+    @Override
+    public String toString(){
+        //return (employee number/full name, hours, rate)
+        return (this.employeeNumber + "/" + this.fullName + ", "+ this.hoursWorked + " Hours @" + this.payRate + " per hour");
+    }
+
+
+
  
 
 } // end of class Employee
@@ -108,6 +118,8 @@ public class DriverClass {
     private String companyName;
     private static String companyTaxId;
     double taxRate = 0.06;
+
+    
 
     //Add static Setters and Getters for companyTaxId. We assume that
     //all companies share the same companyTaxId and that may change
@@ -163,19 +175,22 @@ public class DriverClass {
 
     }
     public void printEmployees() {
+        System.out.println("PRINTING EMPLOYEES:");
         for(int i = 0; i < employeeList.size(); i++){
             Employee currentEmployee = employeeList.get(i);
-            System.out.println(currentEmployee.getfullName());
+            System.out.print(currentEmployee.getfullName()+ ", ");
         }
+        System.out.println("\n");
     //This methods prints all employees (One employee per line)
     //Note that you already have toString in Employee
     }
     public int countEmployees( double maxSalary ) {
     //This method returns the number of employees paid less than maxSalary
+
     return 100;
     }
     public boolean SearchByName (String fullName ) {
-/* 
+
             if (employeeList.size() > 0){
             for (int i = 0; i<employeeList.size(); i++){
             Employee current = employeeList.get(i);
@@ -191,7 +206,7 @@ public class DriverClass {
     //This method returns true if fullName exists as an employee.
     //It returns false otherwise
     //this is a not a case sensitive search.
-    */
+    
     return true;
     
     }
@@ -200,6 +215,24 @@ public class DriverClass {
     }
     public void deleteEmployeesBySalary (double targetSalary ) {
     //This method deletes all employees who are paid targetSalary as a gross //salary
+
+            if (employeeList.size() > 0){
+            for (int i = 0; i<employeeList.size(); i++){
+            Employee current = employeeList.get(i);
+            //System.out.println(current.fullName +", "+ current);
+            if (targetSalary == current.getHoursWorked()* current.getPayRate()){
+                System.out.println("Deleting employee");
+                employeeList.remove(i);
+                // delete employee
+            }
+            else
+                System.out.println("Employee not found. NOT removed!");
+            }
+        }
+
+
+
+
     }
     public double netPay(Employee employee){
         // (user.hours * users.payrate) * 0.06
