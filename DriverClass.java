@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 
@@ -21,13 +22,13 @@ public class DriverClass {
     company.hire(e);
 
     //company.hire(new Employee("Enrico Torres" , "et897" , 3 , 150) );
-    //company.hire (new Employee ("Saeed Happy", "sh895" , 2 , 200) );
+    company.hire (new Employee ("Saeed Happy", "sh895" , 2 , 200) );
 
 
 
    // company.printCheck("ej789"); // This prints the check of Erika T. Jones
     //company.printCheck("oogabooga"); // This prints the check of Erika T. Jones
-    company.printCheck("et897"); // This prints the check of Erika T. Jones
+    //company.printCheck("et897"); // This prints the check of Erika T. Jones
     company.printEmployees();
 
 
@@ -37,10 +38,10 @@ public class DriverClass {
     //Make sure that each employee of company has a unique employeeNumber
      
     //company.printCheck("ab784");
-    company.deleteEmployeesBySalary(450);
-    //company.reverseEmployees();
+    //*company.deleteEmployeesBySalary(450);
+    company.reverseEmployees();
     //System.out.println( company.SearchByName("WaLiD WiLLiAms") );
-    company.printEmployees();
+    //company.printEmployees();
     
         //company.printList();
     System.out.println("Bye!");
@@ -212,6 +213,11 @@ public class DriverClass {
     }
     public void reverseEmployees () {
     //This method reverses the order in which the employees were added to //the list. The last employee is swapped with the first employee, the //second last with the second and so on..
+
+    Collections.reverse(employeeList);
+    printEmployees();
+
+
     }
     public void deleteEmployeesBySalary (double targetSalary ) {
     //This method deletes all employees who are paid targetSalary as a gross //salary
